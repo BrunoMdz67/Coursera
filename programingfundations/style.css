@@ -1,0 +1,50 @@
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 5em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: rgb(75, 70, 70);
+    font-size: 2em;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    color: rgb(180, 177, 171);
+    font-size: 1.5em;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    color: #3F3FBF;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+.nestedli {
+    color: rebeccapurple
+}
+
+
+
+img {
+    width: 10%;
+    height: auto;
+}
