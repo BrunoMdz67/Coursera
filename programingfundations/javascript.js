@@ -231,7 +231,7 @@ SimpleImage.prototype = {
         }
         else {
             var myself = this;
-            setTimeout(function() {
+            setTimeout(function () {
                 myself.drawTo(toCanvas);
             }, 100);
         }
@@ -247,19 +247,19 @@ SimpleImage.prototype = {
         // Non-firefox browsers may benefit
         for (var y = 0; y < this.getHeight(); y++) {
             for (var x = 0; x < this.getWidth(); x++) {
-                  //array[i++] = new SimplePixel(this, x, y);  // 2.
-                  array.push(new SimplePixel(this, x, y));  // 1.
+                //array[i++] = new SimplePixel(this, x, y);  // 2.
+                array.push(new SimplePixel(this, x, y));  // 1.
             }
         }
         return array;
     },
     // Support iterator within for loops (eventually)
-    values: function() {
+    values: function () {
         __SimpleImageUtilities.funCheck('values', 0, arguments.length);
         return this.toArray();
     },
     // Better name than values if we have to use it
-    pixels: function() {
+    pixels: function () {
         return this.values();
     },
 
@@ -306,9 +306,9 @@ var __SimpleImageUtilities = (function () {
     // number of canvases created to hold images
     var globalCanvasCount = 0;
     // load image by wrapping it in an HTML element
-    function makeHTMLImage (url, name, simpleImage, loadFunc) {
+    function makeHTMLImage(url, name, simpleImage, loadFunc) {
         if (loadFunc == null) {
-            loadFunc = function() {
+            loadFunc = function () {
                 simpleImage.__init(this);
                 console.log('loaded image: ' + simpleImage.id);
             }
@@ -324,7 +324,7 @@ var __SimpleImageUtilities = (function () {
     // public utility functions
     return {
         // make a blank image so it is cached for future uses
-        EMPTY_IMAGE: makeHTMLImage(EMPTY_IMAGE_DATA, 'EMPTY', null, function () {}),
+        EMPTY_IMAGE: makeHTMLImage(EMPTY_IMAGE_DATA, 'EMPTY', null, function () { }),
 
         // create a canvas element
         makeHTMLCanvas: function (prefix) {
@@ -340,7 +340,7 @@ var __SimpleImageUtilities = (function () {
         makeHTMLImageFromInput: function (file, simpleImage) {
             console.log('creating image: ' + file.name);
             var reader = new FileReader();
-            reader.onload = function() {
+            reader.onload = function () {
                 makeHTMLImage(this.result, file.name.substr(file.name.lastIndexOf('/') + 1), simpleImage);
             }
             reader.readAsDataURL(file);
@@ -403,7 +403,7 @@ var __SimpleImageUtilities = (function () {
                 var s1 = (actualLen == 1) ? '' : 's';  // pluralize correctly
                 var s2 = (expectedLen == 1) ? '' : 's';
                 var message = 'You tried to call ' + funcName + ' with ' + actualLen + ' value' + s1 +
-                              ', but it expects ' + expectedLen + ' value' + s2 + '.';
+                    ', but it expects ' + expectedLen + ' value' + s2 + '.';
                 // someday: think about "values" vs. "arguments" here
                 __SimpleImageUtilities.throwError(message);
             }
@@ -413,8 +413,8 @@ var __SimpleImageUtilities = (function () {
         rangeCheck: function (value, low, high, funName, coordName, size) {
             if (value < low || value >= high) {
                 var message = 'You tried to call ' + funName + ' for a pixel with ' + coordName + '-coordinate of ' + value +
-                              ' in an image that is only ' + high + ' pixels ' + size +
-                              ' (valid ' + coordName + ' coordinates are ' + low + ' to ' + (high-1) + ').';
+                    ' in an image that is only ' + high + ' pixels ' + size +
+                    ' (valid ' + coordName + ' coordinates are ' + low + ' to ' + (high - 1) + ').';
                 __SimpleImageUtilities.throwError(message);
             }
         }
@@ -424,36 +424,36 @@ var __SimpleImageUtilities = (function () {
 
 console.log('hello world');
 
-var x=3;
-var y= 3 * x;
+var x = 3;
+var y = 3 * x;
 console.log(y);
 
 function square(x) {
     return x * x;
 }
 
-function cube(z){
+function cube(z) {
     return z * z * z;
 }
 
-function sumofstrings(b,a){
+function sumofstrings(b, a) {
     return b + a;
 }
 
-function phrase3words(a,b,c){
+function phrase3words(a, b, c) {
     return a + b + c;
 }
 
-function reformatName(first,last){
+function reformatName(first, last) {
     return last + ", " + first;
 }
 
-console.log(phrase3words("smile ", " at ", "everyone!") );
-console.log(phrase3words("everyone ", " wave ", "back!") );
-console.log(phrase3words("coding ", " is ", "fun!") );
+console.log(phrase3words("smile ", " at ", "everyone!"));
+console.log(phrase3words("everyone ", " wave ", "back!"));
+console.log(phrase3words("coding ", " is ", "fun!"));
 
 console.log(reformatName("Susan", "Rodger"));
-console.log(reformatName("Robert","Duvall"))
+console.log(reformatName("Robert", "Duvall"))
 
 y = square(5);
 c = cube(5);
@@ -472,17 +472,17 @@ console.log(img.getWidth());
 
 // write your code here
 
-function numberPixels(namefile){
-    var someImg=new SimpleImage(namefile);
-    var height=someImg.getHeight();
-    var width=someImg.getWidth();
-    return height*width
+function numberPixels(namefile) {
+    var someImg = new SimpleImage(namefile);
+    var height = someImg.getHeight();
+    var width = someImg.getWidth();
+    return height * width
 }
-function perimeter(imageName){
-    var someImg=new SimpleImage(imageName);
-    var height=someImg.getHeight();
-    var width=someImg.getWidth();
-    return (height*2)+(width*2)
+function perimeter(imageName) {
+    var someImg = new SimpleImage(imageName);
+    var height = someImg.getHeight();
+    var width = someImg.getWidth();
+    return (height * 2) + (width * 2)
 }
 
 /*
@@ -498,20 +498,20 @@ function printPixel(nameImage, xpos, ypos) {
 }
 */
 function printPixel(nameImage, xpos, ypos) {
-    var someImage = new SimpleImage(nameImage) ;
-    print("red is " + someImage.getRed(xpos,ypos));
-    print("green is " + someImage.getGreen(xpos,ypos));
-    print("blue is " + someImage.getBlue(xpos,ypos));
+    var someImage = new SimpleImage(nameImage);
+    print("red is " + someImage.getRed(xpos, ypos));
+    print("green is " + someImage.getGreen(xpos, ypos));
+    print("blue is " + someImage.getBlue(xpos, ypos));
 }
 
 function sumPixel(nameOfImage, xpos, ypos) {
     var image = new SimpleImage(nameOfImage);
     var pixel = image.getPixel(xpos, ypos);
-    
+
     var redValue = pixel.getRed();
     var greenValue = pixel.getGreen();
     var blueValue = pixel.getBlue();
-    
+
     var sum = redValue + greenValue + blueValue;
     return sum;
 }
@@ -525,8 +525,8 @@ print(result);
 print(perimeter("rodger.png"));
 
 
-printPixel("drewgreen.png",10, 10);
-printPixel("drewgreen.png",250, 500);
+printPixel("drewgreen.png", 10, 10);
+printPixel("drewgreen.png", 250, 500);
 
 var answer = sumPixel("drewgreen.png", 250, 500);
 print(answer);
@@ -534,12 +534,80 @@ answer = sumPixel("drewgreen.png", 10, 10);
 print(answer);
 
 function phrase3words(value1, value2, value3) {
-    var answer= value1 + " " + value2 + " " + value3 ;
+    var answer = value1 + " " + value2 + " " + value3;
     return answer;
 }
 
-var result1 = phrase3words("smile","at","everyone");
-var result2 = phrase3words("everyone","wave", "back");
+var result1 = phrase3words("smile", "at", "everyone");
+var result2 = phrase3words("everyone", "wave", "back");
 var result3 = phrase3words("that", "might", "make");
 var result4 = phrase3words(result1, result3, result2);
 print(result4);
+
+
+
+logo = new SimpleImage("chapel.png")
+
+
+for (var pixel of logo.values()) {
+    pixel = pixel.setRed(255)
+
+}
+
+print(logo)
+
+logo = new SimpleImage("chapel.png")
+
+
+for (var pixel of logo.values()) {
+    pixel = pixel.setRed(0)
+
+}
+
+print(logo)
+
+
+logo = new SimpleImage("eastereggs.jpg")
+
+
+for (var pixel of logo.values()) {
+    if (pixel.getRed() > 70) {
+        pixel = pixel.setRed(70)
+    }
+
+}
+
+print(logo)
+
+
+
+var image = new SimpleImage("astrachan.jpg");
+for (var pixel of image.values()) {
+
+    if (pixel.getY() >= image.getHeight() - 10) {
+        pixel.setRed(0)
+        pixel.setGreen(0)
+        pixel.setBlue(0)
+    }
+
+}
+
+print(image);
+
+
+
+
+var image = new SimpleImage("chapel.jpg");
+for (var pixel of image.values()) {
+
+    if (pixel.getY() < 50 && pixel.getX() < 50) {
+        pixel.setRed(0)
+        pixel.setGreen(0)
+        pixel.setBlue(0)
+    }
+
+}
+
+print(image);
+
+
