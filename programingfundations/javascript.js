@@ -611,3 +611,22 @@ for (var pixel of image.values()) {
 print(image);
 
 
+var image = new SimpleImage("chapel.png");
+
+result = topRightCorner(30, 60, picture, 255, 255, 0)
+
+result2 = topRightCorner(125, 20, picture2, 255, 0, 0)
+
+function topRightCorner(cornerWidth, cornerHeight, someImage, red, green, blue) {
+
+    // missing code
+
+}
+
+var picture = new SimpleImage("chapel.png");
+var result = topRightCorner(30, 60, picture, 255, 255, 0);
+print(result);
+var picture2 = new SimpleImage("smalllion.jpg");
+var result2 = topRightCorner(125, 20, picture2, 255, 0, 0);
+print(result2);
+
